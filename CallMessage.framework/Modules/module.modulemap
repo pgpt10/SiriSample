@@ -1,0 +1,10 @@
+framework module CallMessage {
+  umbrella header "CallMessage.h"
+
+  export *
+  module * { export * }
+}
+
+module CallMessage.Swift {
+    header "CallMessage-Swift.h"
+}

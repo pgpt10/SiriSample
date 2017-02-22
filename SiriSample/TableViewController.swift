@@ -23,14 +23,14 @@ extension TableViewController
 {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return contactNames.count
+        return contacts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = contactNames[indexPath.row]
-        cell?.detailTextLabel?.text = contactNumbers[indexPath.row]
+        cell?.textLabel?.text = contacts[indexPath.row]["name"]
+        cell?.detailTextLabel?.text = contacts[indexPath.row]["number"]
         return cell!
     }
     
@@ -39,7 +39,6 @@ extension TableViewController
         tableView.deselectRow(at: indexPath, animated: true)
         if let numberString = tableView.cellForRow(at: indexPath)?.detailTextLabel?.text
         {
-            _ = makeCallToNumber(numberString)
         }
     }
 }

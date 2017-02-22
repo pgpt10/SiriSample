@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD22E6CF1E5D9D9500284F25 /* SendMessageIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22E6CE1E5D9D9500284F25 /* SendMessageIntentHandler.swift */; };
+		BD22E6D11E5D9DDF00284F25 /* AudioCallIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22E6D01E5D9DDF00284F25 /* AudioCallIntentHandler.swift */; };
 		BD7332FE1E4F434A00CEAA12 /* CallMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = BD7332FC1E4F434A00CEAA12 /* CallMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD7333011E4F434A00CEAA12 /* CallMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7332FA1E4F434900CEAA12 /* CallMessage.framework */; };
 		BD7333021E4F434A00CEAA12 /* CallMessage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD7332FA1E4F434900CEAA12 /* CallMessage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -78,6 +80,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD22E6CE1E5D9D9500284F25 /* SendMessageIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMessageIntentHandler.swift; sourceTree = "<group>"; };
+		BD22E6D01E5D9DDF00284F25 /* AudioCallIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCallIntentHandler.swift; sourceTree = "<group>"; };
 		BD7332FA1E4F434900CEAA12 /* CallMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CallMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7332FC1E4F434A00CEAA12 /* CallMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallMessage.h; sourceTree = "<group>"; };
 		BD7332FD1E4F434A00CEAA12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			children = (
 				BDDA3F991E4F394900224C4E /* IntentHandler.swift */,
 				BDDA3F9B1E4F394900224C4E /* Info.plist */,
+				BD22E6CE1E5D9D9500284F25 /* SendMessageIntentHandler.swift */,
+				BD22E6D01E5D9DDF00284F25 /* AudioCallIntentHandler.swift */,
 			);
 			path = SiriSampleIntentsExtension;
 			sourceTree = "<group>";
@@ -425,7 +431,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD22E6CF1E5D9D9500284F25 /* SendMessageIntentHandler.swift in Sources */,
 				BDDA3F9A1E4F394900224C4E /* IntentHandler.swift in Sources */,
+				BD22E6D11E5D9DDF00284F25 /* AudioCallIntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +746,7 @@
 				BDD19DA31E50B5060058F4F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDDA3F791E4F392300224C4E /* Build configuration list for PBXProject "SiriSample" */ = {
 			isa = XCConfigurationList;

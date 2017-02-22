@@ -42,10 +42,12 @@ extension IntentViewController : INUIHostedViewControlling
             if let name = sendMessageIntent.recipients?.first?.displayName
             {
                 self.nameLabel.text = name
-                if let index = contactNames.index(of: name)
+                for dict in contacts
                 {
-                    let number = contactNumbers[index]
-                    self.nameLabel.text = "\(name) (\(number))"
+                    if dict["name"] == name
+                    {
+                        self.nameLabel.text = "\(name) (\(dict["number"]!))"
+                    }
                 }
             }
             if let content = sendMessageIntent.content

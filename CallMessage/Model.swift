@@ -7,55 +7,54 @@
 //
 
 import UIKit
-import MessageUI
+import Intents
 
-public let contactNames = ["Nikita", "Saurabh", "Sonia", "Rahul", "Sahil", "Nidhi", "Vinay", "Roshan", "Sarita", "Aarti", "Sahil"]
-public let contactNumbers = ["9643306897", "111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999", "1010101010"]
+public let contacts = [
+    ["name": "Nikita", "number": "9643306897"],
+    ["name": "Nupur Gupta", "number": "1111111111"],
+    ["name": "Nupur Aluria", "number": "222222222"]]
 
-public func makeCallToNumber(_ numberToCall : String?) -> Bool
+public func matchingContactsWithName(_ name : String) -> [INPerson]
 {
-    if var numberToCall = numberToCall
+    var matchedContacts = [INPerson]()
+    for dict in contacts
     {
-        numberToCall = numberToCall.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression, range: numberToCall.range(of: numberToCall))
-        
-        if numberToCall.hasPrefix("91") && numberToCall.characters.count > 10
+        if (dict["name"]?.contains(name))!
         {
-            numberToCall = "+\(numberToCall)"
-        }
-        
-        let urlSchema = "tel:"
-        if let numberToCallURL = URL(string: "\(urlSchema)\(numberToCall)")
-        {
-            if UIApplication.shared.canOpenURL(numberToCallURL)
-            {
-                UIApplication.shared.open(numberToCallURL, options: [:], completionHandler: nil)
-                return true
-            }
+            matchedContacts.append(dict.inPerson)
         }
     }
-    return false
+    return matchedContacts
 }
 
-public func sendMessageToNumber(_ number : String?) -> Bool
+public func sendMessage(_ content : String?, toRecipients : [INPerson]) -> Bool
 {
-    if var number = number
-    {
-        number = number.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression, range: number.range(of: number))
-        
-        if number.hasPrefix("91") && number.characters.count > 10
-        {
-            number = "+\(number)"
-        }
-        
-        let urlSchema = "sms:"
-        if let numberURL = URL(string: "\(urlSchema)\(number)")
-        {
-            if UIApplication.shared.canOpenURL(numberURL)
-            {
-                UIApplication.shared.open(numberURL, options: [:], completionHandler: nil)
-                return true
-            }
-        }
-    }
-    return false
+    //TODO: Send Message Logic
+    return true
 }
+
+public func makeCall(toRecipients : [INPerson]) -> Bool
+{
+    //TODO: Call Logic
+    return true
+}
+
+extension Dictionary
+{
+    var inPerson : INPerson{
+        return INPerson(personHandle: INPersonHandle.init(value: self["number" as! Key] as! String, type: INPersonHandleType.phoneNumber), nameComponents: nil, displayName: self["name" as! Key] as? String, image: nil, contactIdentifier: nil, customIdentifier: nil)
+    }
+}
+
+//public func updateSiriVocabulary()
+//{
+//    DispatchQueue.init(label: "SiriVocabulary").async {
+//        var names = [String]()
+//        for dict in contacts
+//        {
+//            names.append(dict["name"]!)
+//        }
+//        let orderedNames = NSOrderedSet.init(array: names)
+//        INVocabulary.shared().setVocabularyStrings(orderedNames, of: .contactName)
+//    }
+//}
